@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon" />
+    <title>爱信公益，让公益更简单</title>
+    <meta itemprop="image" content="images/爱信.png"/>
+    <meta name="description" itemprop="description" content="公益专属App,随时随地做公益" />
+    <meta name="keywords" content="华夏爱信公益，让公益更简单">
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/less.css"/>
+    <script src="js/jquery.min.js"></script>
+    <!--接口-->
+    <script src="js/url.js"></script>
+    <!--通用rem-->
+    <script src="js/common.js"></script>
+    <!--模板-->
+    <script src="js/template.js"></script>
+    <!--微信js-->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/weixinshare.js"></script>
+</head>
+<body>
+        <div class="top">
+            <img src="images/banner未加载.png" alt=""/>
+        </div>
+        <div class="mask">
+            <p class="title"></p>
+            <span class="zhuangtai"></span>
+        </div>
+        <div class="content">
+            <h3>
+                <img  src="images/活动时间与地点.png" alt=""/>活动时间与地点
+            </h3>
+            <p>活动时间：<span class="starttime"></span></p>
+            <!--活动地点过长-->
+            <span class="fl" style="display: inline-block;font-size: 0.30rem;color: #333;margin-top: 0.2rem">活动地点：</span>
+            <span class="adress" style="overflow: hidden;display: block;font-size: 0.26rem;color: #666;margin-top: 0.25rem"></span>
+            <!--正常地址-->
+            <!--<p>活动地点：<span class="adress"></span></p>-->
+            <p class="jihetime">集合时间：<span class="collecttime"></span></p>
+            <span class="fl jihedidian" style="display: inline-block;font-size: 0.30rem;color: #333;margin-top: 0.2rem">集合地点：</span>
+            <span class="collectadress" style="overflow: hidden;display: block;font-size: 0.26rem;color: #666;margin-top: 0.25rem"></span>
+        </div>
+        <p class="border"></p>
+        <h3 class="scope"><img src="images/活动规模.png" alt=""/>活动规模：
+            <span class="scale"></span>
+        </h3>
+        <h3 class="scope noborder"><img src="images/活动发起.png" alt=""/>活动发起：<span class="team"></span></h3>
+        <p class="space"></p>
+        <div class="contents">
+        <h3 class="scope detail"><img src="images/活动详情.png" alt=""/>活动详情</h3>
+        <div id="box" class="one">
+        </div>
+        <div id="btn">
+            <span>展开</span><img src="images/下箭头.png" alt=""/>
+        </div>
+        </div>
+        <p class="space"></p>
+
+        <h3 class="scope zanzhu"><img src="images/赞助支持.png" alt=""/>活动赞助：<span class="response"></span></h3>
+        <p class="space"></p>
+        <div class="contentss">
+            <h3 class="info">
+            <img  src="images/活动信息.png" alt=""/>活动信息
+        </h3>
+         <p class="cost">活动费用：<span class="fee">免费</span></p><br/>
+            <!--<p class="cost">活动标签：<span class="tip"> </span> <span class="div"> </span></p>-->
+            <span class="fl" style="display: inline-block;font-size: 0.32rem;color: #333;margin-top: 0.2rem">活动标签：</span>
+            <span class="cost" style="overflow: hidden;display: block;font-size: 0.26rem;color: #666;margin-top: 0.25rem"> <span class="tip"> </span> <span class="div"> </span></span>
+        </div>
+        <p class="space"></p>
+        <div class="contentsss">
+            <h3 class="info">
+                <img  src="images/活动联系人.png" alt=""/>活动联系人
+            </h3>
+            <ul class="list">
+                <li>
+                    <img class="userUrl" src="images/默认头像.png" alt=""/><span class="username"></span>
+                    <!--<img class="phone" src="images/电话.png" alt=""/>-->
+                    <!--<span class="txt">电话</span>-->
+                    <p class="border padding" style="border: 1px solid transparent"></p>
+                </li>
+            </ul>
+        </div>
+        <div class="foot">
+            <p>活动信息来自爱信公益APP</p>
+            <span>分享者 <span class="sharer"></span> <span class="acting">正在活动中</span> <span class="role"></span></span>
+        </div>
+        <div class="links">
+            <img src="images/爱信.png" alt=""/>
+            <span>华夏爱信</span><br/>
+            <span>让公益更简单</span>
+            <span class="downloading">下载爱信APP</span>
+            <img  class="close" src="images/取消按钮.png" alt=""/>
+        </div>
+
+        <!--站长统计 start-->
+<div style="display:none">
+    <script src="js/total.js"></script>
+</div>
+<!--站长统计 end -->
+<script type="text/html" id="scale">
+    {{if personNum}}
+    <span class="scale">{{personNum}}</span>
+    {{/if}}
+ </script>
+ <script type="text/html" id="team">
+     {{if organizer}}
+     <span class="team">{{organizer.name}}</span>
+     {{/if}}
+ </script>
+ <script type="text/html" id="details">
+        {{each photoText as v i}}
+        {{if i%2==0}}<div id="showbox{{i/2}}">{{/if}}
+            {{if v.type=="text"}}<p>{{v.content}}</p>{{/if}}
+            {{if v.type=="image"}}<img src="{{v.content}}" alt=""/>{{/if}}
+            {{if i%2==1}}</div>{{/if}}
+        {{/each}}
+ </script>
+ <script type="text/html" id="mask">
+        {{each activityTabs as v i}}
+            <span>{{v.name}}</span>
+        {{/each}}
+ </script>
+<script src="js/share.js"></script>
+</body>
+</html>
